@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Raleway , Work_Sans} from "next/font/google";
+import { Roboto, Raleway, Work_Sans } from "next/font/google";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -27,8 +27,12 @@ const work_sans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Wit by Bit",
-  description: "Wit by Bit is a Next.js project",
+  title: {
+    template: "%s | Wit by Bit",
+    default: "Home | Wit by Bit",
+  },
+  description:
+    "Wit by Bit is a Next.js project that highlights modern web development practices with fast and responsive design",
 };
 
 export default function RootLayout({
@@ -38,7 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${raleway.variable} ${work_sans.variable} font-work-sans`}>
+      <body
+        className={`${roboto.variable} ${raleway.variable} ${work_sans.variable} font-work-sans`}
+      >
         {children}
       </body>
     </html>
