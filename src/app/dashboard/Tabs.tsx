@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import ProductManagement from "@/components/product/ProductManagement";
 
 const Tabs = () => {
   const searchParams = useSearchParams();
@@ -19,7 +20,7 @@ const Tabs = () => {
       case "home":
         return <div>Home</div>;
       case "products":
-        return <div>Product</div>;
+        return <ProductManagement />;
       case "store":
         return <div>Store Information</div>;
       case "catalogue":
@@ -37,11 +38,7 @@ const Tabs = () => {
     }
   };
 
-  return (
-    <div className="p-8 w-full h-full">
-      {renderContent()}
-    </div>
-  );
+  return <div className="p-8 w-full h-full">{renderContent()}</div>;
 };
 
 export default Tabs;
