@@ -1,0 +1,42 @@
+{
+    "products": [
+      {
+        "name": "Nike Air Jordan",
+        "category": "Shoes",
+        "brand": "Nike",
+        "description": "Iconic basketball shoes",
+        "image": "/images/shoes-image.png",
+        "variants": [
+          { "name": "Size", "values": ["M", "L"] },
+          { "name": "Color", "values": ["Black", "Red"] }
+        ],
+        "combinations": {
+          "a": { "name": "M/Black", "sku": "ABC12", "quantity": 4, "inStock": false },
+          "b": { "name": "L/Red", "sku": "ABC13", "quantity": 5, "inStock": true }
+        },
+        "priceInr": 12000,
+        "discount": { "method": "pct", "value": 12 }
+      },
+      {
+        "name": "Nike Dunk Low",
+        "category": "Shoes",
+        "brand": "Nike",
+        "description": "Classic low-top sneakers",
+        "image": "/images/shoes-image.png",
+        "variants": [
+          { "name": "Size", "values": ["M", "L"] },
+          { "name": "Color", "values": ["Black", "White"] }
+        ],
+        "combinations": {
+          "a": { "name": "M/Black", "sku": "XYZ34", "quantity": 6, "inStock": true },
+          "b": { "name": "L/White", "sku": "XYZ35", "quantity": 2, "inStock": true }
+        },
+        "priceInr": 8000,
+        "discount": { "method": "pct", "value": 10 }
+      }
+    ],
+    "categories": [
+      { "id": "abc", "name": "Shoes" },
+      { "id": "xyz", "name": "T-shirt" }
+    ]
+  }
