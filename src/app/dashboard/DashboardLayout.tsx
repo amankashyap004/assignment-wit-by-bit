@@ -1,9 +1,19 @@
-import React from 'react'
+import Sidebar from "./Sidebar";
+import { ReactNode } from "react";
 
-const DashboardLayout = () => {
-  return (
-    <div>DashboardLayout</div>
-  )
+interface DashboardLayoutProps {
+  children: ReactNode;
 }
 
-export default DashboardLayout
+const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+  return (
+    <div className="flex w-full h-screen px-4">
+      <div className="w-1/6">
+        <Sidebar />
+      </div>
+      <div className="w-5/6">{children}</div>
+    </div>
+  );
+};
+
+export default DashboardLayout;
