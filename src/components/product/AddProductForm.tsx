@@ -2,8 +2,11 @@
 
 import React, { useState } from "react";
 import { Product } from "@/types";
+import { ChevronRight, Upload, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import {
   Select,
   SelectContent,
@@ -11,8 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ChevronRight, Upload, Plus, Trash2 } from "lucide-react";
-import { Label } from "@/components/ui/label";
 import {
   Table,
   TableBody,
@@ -21,7 +22,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Switch } from "@/components/ui/switch";
 
 interface AddProductFormProps {
   categories: string[];
@@ -237,25 +237,25 @@ export default function AddProductForm({
   const renderVariantsStep = () => (
     <div className="flex flex-col justify-start items-start gap-4 lg:gap-5 w-full">
       <h3 className="text-lg font-semibold mb-2">Variants</h3>
-      <div className="flex justify-start items-center w-full gap-4">
-        <Label className="w-[30%]">Option *</Label>
-        <Label className="w-[65%]">Values *</Label>
+      <div className="flex justify-start items-center w-full lg:gap-4">
+        <Label className="w-[40%] lg:w-[30%]">Option *</Label>
+        <Label className="w-[55%] lg:w-[65%]">Values *</Label>
       </div>
 
       {newProduct.variants &&
         newProduct.variants.map((variant, index) => (
           <div
             key={index}
-            className="flex justify-start items-center gap-4 w-full"
+            className="flex justify-start items-center gap-2 lg:gap-4 w-full"
           >
             <Input
-              className="w-[30%]"
+              className="w-[40%] lg:w-[30%]"
               placeholder="Option can't be empty"
               value={variant.name}
               onChange={(e) => updateVariant(index, "name", e.target.value)}
             />
             <Input
-              className="w-[65%]"
+              className="w-[55%] lg:w-[65%]"
               placeholder="Value can't be empty"
               value={variant.values.join(",")}
               onChange={(e) => updateVariant(index, "values", e.target.value)}
@@ -290,7 +290,10 @@ export default function AddProductForm({
       </Button>
       {newProduct.combinations &&
         Object.entries(newProduct.combinations).map(([key, combination]) => (
-          <div key={key} className="mb-2 p-2 rounded w-full">
+          <div
+            key={key}
+            className="mb-2 lg:p-2 rounded w-full overflow-auto text-nowrap"
+          >
             <Table className="border-none">
               <TableHeader>
                 <TableRow className="border-none">
@@ -420,12 +423,11 @@ export default function AddProductForm({
   };
 
   return (
-    <div className="flex flex-col h-full">
-      <header className="bg-white shadow-sm p-4 flex items-center justify-between">
+    <div className="flex flex-col gap-2 h-full">
+      <header className="flex flex-col lg:flex-row justify-between items-center gap-4 bg-white shadow-sm ">
         <div className="flex items-center space-x-2">
           <h1 className="text-2xl font-bold">Add Product</h1>
         </div>
-
         <div className="flex justify-between items-center gap-4">
           {currentStep === 1 && (
             <Button
@@ -461,17 +463,17 @@ export default function AddProductForm({
           )}
         </div>
       </header>
-      <div className="flex-1 overflow-auto p-4">
-        <div className="flex flex-col justify-start items-start w-full gap-6">
-          <div className="flex items-center">
+      <div className="flex-1 overflow-auto w-full py-4 lg:px-4">
+        <div className="flex flex-col justify-start items-start w-full gap-4 lg:gap-6">
+          <div className="flex items-center overflow-auto w-full">
             {["Description", "Variants", "Combinations", "Price"].map(
               (step, index) => (
                 <div
                   key={step}
-                  className="flex items-center justify-start gap-3"
+                  className="flex items-center justify-start gap-1 lg:gap-3"
                 >
                   <div
-                    className={`flex items-center justify-center rounded-xl px-6 py-1 font-semibold text-lg ${
+                    className={`flex items-center justify-center rounded-md lg:rounded-xl px-4 lg:px-6 py-1 font-semibold text-sm lg:text-lg ${
                       currentStep >= index + 1
                         ? "bg-[#DAEDF9] text-[#1F8CD0]"
                         : "text-[#808080]"
@@ -481,7 +483,7 @@ export default function AddProductForm({
                   </div>
 
                   {index < 3 && (
-                    <ChevronRight className="h-6 w-6 text-[#808080] font-semibold text-lg" />
+                    <ChevronRight className="h-4 lg:h-6 w-4 lg:w-6 text-[#808080] font-semibold text-lg" />
                   )}
                 </div>
               )

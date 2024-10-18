@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Product, Category } from "@/types";
+import { Button } from "../ui/button";
 import ProductList from "./ProductList";
 import AddProductForm from "./AddProductForm";
 import AddCategoryModal from "./AddCategoryModal";
-import { Button } from "../ui/button";
 
 function ProductManagement() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -43,7 +43,7 @@ function ProductManagement() {
         />
       ) : (
         <div className="flex flex-col justify-start items-start gap-8 w-full h-full overflow-auto">
-          <div className="flex justify-between items-center w-full">
+          <div className="flex flex-col lg:flex-row justify-between items-center w-full gap-4">
             <h1 className="text-2xl font-bold">Products</h1>
             <div className="space-x-4">
               <Button

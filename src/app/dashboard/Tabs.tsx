@@ -1,7 +1,7 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import ProductManagement from "@/components/product/ProductManagement";
 
 const Tabs = () => {
@@ -38,7 +38,7 @@ const Tabs = () => {
     }
   };
 
-  return <div className="p-8 w-full h-full">{renderContent()}</div>;
+  return <div className="w-full h-full p-0 lg:p-8">{renderContent()}</div>;
 };
 
 export default Tabs;
