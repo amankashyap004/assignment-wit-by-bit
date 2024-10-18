@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import { Product } from '@/types';
+import React from "react";
+import Image from "next/image";
+import { Product } from "@/types";
 
 interface ProductCardProps {
   product: Product;
@@ -8,7 +8,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="flex justify-start items-start w-full h-full gap-4 p-3 rounded-lg bg-white text-black">
+    <div className="flex justify-start items-start w-full h-full gap-4 p-2 lg:p-3 rounded-lg bg-white text-black">
       <div className="flex justify-center items-center w-36 h-24 rounded-lg bg-[#F8F8F8] p-1">
         <Image
           src={product.image}

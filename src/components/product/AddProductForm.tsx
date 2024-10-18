@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Product } from "@/types";
 import { ChevronRight, Upload, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -131,8 +132,8 @@ export default function AddProductForm({
         return;
       }
 
-      for (let value of variantValues[depth]) {
-        generateHelper([...current, value], depth + 1);
+      for (let v of variantValues[depth]) {
+        generateHelper([...current, v], depth + 1);
       }
     };
 
@@ -223,9 +224,13 @@ export default function AddProductForm({
       {imageFile && (
         <div className="mt-2 flex justify-center">
           <div className="relative w-32 h-32">
-            <img
+            <Image
               src={URL.createObjectURL(imageFile)}
               alt="Product preview"
+              width={200}
+              height={200}
+              quality={100}
+              priority
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
