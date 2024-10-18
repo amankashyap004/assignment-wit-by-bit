@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import DashboardLayout from "./DashboardLayout";
 import Tabs from "./Tabs";
 
@@ -8,9 +9,11 @@ export const metadata: Metadata = {
 
 const Dashboard = () => {
   return (
-    <DashboardLayout>
-      <Tabs />
-    </DashboardLayout>
+    <Suspense fallback="Loading...">
+      <DashboardLayout>
+        <Tabs />
+      </DashboardLayout>
+    </Suspense>
   );
 };
 
