@@ -132,8 +132,8 @@ export default function AddProductForm({
         return;
       }
 
-      for (let v of variantValues[depth]) {
-        generateHelper([...current, v], depth + 1);
+      for (const value of variantValues[depth]) {
+        generateHelper([...current, value], depth + 1);
       }
     };
 
